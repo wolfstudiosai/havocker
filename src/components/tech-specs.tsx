@@ -54,9 +54,9 @@ const TechSpecs = () => {
 
           <div className="w-full h-full flex items-center justify-center p-12 relative">
             <img
-              src="https://images.unsplash.com/photo-1596683768224-b0f340a6b720?q=80&w=2070&auto=format&fit=crop"
+              src="/images/tech-specs.jpg"
               alt="Schematic"
-              className="w-full h-full object-contain grayscale opacity-60 contrast-125 transition-all duration-700"
+              className="w-full h-full object-contain grayscale opacity-75 contrast-125 transition-all duration-700"
             />
 
             {/* Target Ring */}

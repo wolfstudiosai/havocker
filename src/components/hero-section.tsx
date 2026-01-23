@@ -1,4 +1,5 @@
 import { ArrowRight, Disc, Zap } from "lucide-react";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -8,9 +9,11 @@ const HeroSection = () => {
 
       {/* Hero Image - Multi-layered for depth */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop"
+        <Image
+          src="/images/hero-banner.jpg"
           alt="Havocker Main"
+          fill
+          priority
           className="w-full h-full object-cover grayscale brightness-110 contrast-75 translate-x-[5%] scale-105 opacity-60 mix-blend-multiply"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/40 to-transparent" />

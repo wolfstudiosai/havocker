@@ -12,7 +12,7 @@ const Gallery = () => {
       id: "LOG_004",
       type: "VIDEO_LOG",
       date: "OCT 12, 2025",
-      src: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop",
+      src: "/images/gallery-1.jpg",
       title: "THERMAL_RESISTANCE_VALIDATION",
       tags: ["ENGINEERING", "FIELD_TEST", "MOJAVE"],
       description:
@@ -23,7 +23,7 @@ const Gallery = () => {
       id: "LOG_005",
       type: "LAB_REPORT",
       date: "OCT 18, 2025",
-      src: "https://images.unsplash.com/photo-1621257125307-e837bd6368d5?q=80&w=2070&auto=format&fit=crop",
+      src: "/images/gallery-2.jpg",
       title: "STRUCTURAL_INTEGRITY_REPORT",
       tags: ["MATERIAL_SCIENCE", "QA", "CARBON"],
       description:
@@ -34,7 +34,7 @@ const Gallery = () => {
       id: "LOG_006",
       type: "FIRMWARE_UPDATE",
       date: "OCT 24, 2025",
-      src: "https://images.unsplash.com/photo-1557577265-59b37c043fb9?q=80&w=1974&auto=format&fit=crop",
+      src: "/images/gallery-3.jpg",
       title: "FIRMWARE_V4.2_RELEASE_NOTES",
       tags: ["SOFTWARE", "OTA", "FLUX_CONTROL"],
       description:

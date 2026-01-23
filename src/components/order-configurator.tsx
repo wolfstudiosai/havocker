@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { CONFIG_OPTIONS, BASE_PRICE } from "@/lib/constants";
 import { Check, ArrowRight, Shield, Circle } from "lucide-react";
+import Image from "next/image";
 
 const OrderConfigurator = () => {
   const [selectedLivery, setSelectedLivery] = useState<string>("stealth_black");
@@ -39,17 +40,19 @@ const OrderConfigurator = () => {
     <div className="w-full min-h-screen bg-white border-t border-black/10 flex flex-col lg:flex-row relative overflow-hidden">
       {/* LEFT PANEL: VISUALIZER */}
       {/* Removed padding, enforced h-full and object-cover for full bleed effect */}
-      <div className="w-full lg:w-[60%] relative border-b lg:border-b-0 lg:border-r border-black/5 bg-[#F0F2F5] h-[50vh] lg:h-auto overflow-hidden">
+      <div className="w-full lg:w-[60%] relative border-b lg:border-b-0 lg:border-r border-black/5 bg-[#F0F2F5] h-auto overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 bg-[size:60px_60px] pointer-events-none mix-blend-multiply" />
 
         <div
           className={`w-full h-full transition-all duration-500 ${isAnimating ? "opacity-80 blur-[2px] scale-[1.02]" : "opacity-100 scale-100"
             }`}
         >
-          <img
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop"
+          <Image
+            src="/images/configurator.jpg"
             alt="Havocker Config"
-            className={`w-full h-full object-cover grayscale brightness-110 contrast-100 transition-all duration-700
+            height={500}
+            width={500}
+            className={`w-full h-full object-contain grayscale brightness-110 contrast-100 transition-all duration-700
               ${selectedLivery === "ion_blue" ? "sepia-[0.3] hue-rotate-[170deg] saturate-[5] brightness-110" : ""}
               ${selectedLivery === "arctic_camo" ? "contrast-125 brightness-125 saturate-[0]" : ""}
             `}
