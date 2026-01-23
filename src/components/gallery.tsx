@@ -12,7 +12,7 @@ const Gallery = () => {
       id: "LOG_004",
       type: "VIDEO_LOG",
       date: "OCT 12, 2025",
-      src: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop",
+      src: "/images/gallery-1.jpg",
       title: "THERMAL_RESISTANCE_VALIDATION",
       tags: ["ENGINEERING", "FIELD_TEST", "MOJAVE"],
       description:
@@ -23,7 +23,7 @@ const Gallery = () => {
       id: "LOG_005",
       type: "LAB_REPORT",
       date: "OCT 18, 2025",
-      src: "https://images.unsplash.com/photo-1621257125307-e837bd6368d5?q=80&w=2070&auto=format&fit=crop",
+      src: "/images/gallery-2.jpg",
       title: "STRUCTURAL_INTEGRITY_REPORT",
       tags: ["MATERIAL_SCIENCE", "QA", "CARBON"],
       description:
@@ -34,7 +34,7 @@ const Gallery = () => {
       id: "LOG_006",
       type: "FIRMWARE_UPDATE",
       date: "OCT 24, 2025",
-      src: "https://images.unsplash.com/photo-1557577265-59b37c043fb9?q=80&w=1974&auto=format&fit=crop",
+      src: "/images/gallery-3.jpg",
       title: "FIRMWARE_V4.2_RELEASE_NOTES",
       tags: ["SOFTWARE", "OTA", "FLUX_CONTROL"],
       description:
@@ -66,7 +66,7 @@ const Gallery = () => {
   const currentItem = newsItems[activeIndex];
 
   return (
-    <div className="w-full bg-black border-t border-white/10 relative overflow-hidden flex flex-col h-[90vh] min-h-[700px]">
+    <div className="w-full bg-black border-t border-white/10 relative overflow-hidden flex flex-col min-h-[600px] h-auto md:h-[90vh] md:min-h-[700px]">
       {/* Background Image Layer with Heavy Dark Overlay */}
       <div className="absolute inset-0 z-0">
         {newsItems.map((item, idx) => (
@@ -82,63 +82,63 @@ const Gallery = () => {
           </div>
         ))}
         {/* Subtle Grid on top of darkness */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10 bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-10 bg-[size:30px_30px] md:bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
       </div>
 
       {/* Content Container - Stacked Left */}
-      <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-8 md:px-16 flex flex-col justify-center items-start">
+      <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-12 md:py-0 flex flex-col justify-center items-start">
         {/* Header / Meta */}
-        <div className="mb-6 flex items-center gap-6">
-          <div className="px-3 py-1 bg-white text-black text-[10px] font-bold tracking-[0.4em] uppercase flex items-center gap-2">
-            <Aperture size={12} className="text-acid" /> VISUAL_LOG // NEWS_FEED
+        <div className="mb-4 md:mb-6 flex flex-wrap items-center gap-3 md:gap-6">
+          <div className="px-2 md:px-3 py-1 bg-white text-black text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase flex items-center gap-2">
+            <Aperture size={12} className="text-acid" /> VISUAL_LOG
           </div>
-          <div className="h-px w-20 bg-white/20" />
-          <span className="text-[10px] font-bold tracking-[0.3em] text-white/50 uppercase">
+          <div className="h-px w-10 md:w-20 bg-white/20 hidden sm:block" />
+          <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] text-white/50 uppercase">
             {currentItem.type} /// {currentItem.date}
           </span>
         </div>
 
         {/* Main Title & Description */}
-        <div className="max-w-3xl relative">
+        <div className="max-w-full sm:max-w-xl md:max-w-3xl relative">
           <h2
             key={currentItem.id}
-            className="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.85] mb-8 animate-in fade-in slide-in-from-left-4 duration-500 uppercase drop-shadow-2xl"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.85] mb-4 md:mb-8 animate-in fade-in slide-in-from-left-4 duration-500 uppercase drop-shadow-2xl break-words"
           >
             {currentItem.title}
           </h2>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-8">
             {currentItem.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 border border-white/20 text-[9px] font-bold tracking-[0.2em] text-acid uppercase bg-black/50 backdrop-blur-sm"
+                className="px-2 md:px-3 py-1 border border-white/20 text-[8px] md:text-[9px] font-bold tracking-[0.15em] md:tracking-[0.2em] text-acid uppercase bg-black/50 backdrop-blur-sm"
               >
                 #{tag}
               </span>
             ))}
           </div>
 
-          <div className="flex flex-col gap-8 border-l-2 border-acid pl-8 py-2">
-            <p className="text-sm font-semibold text-white/80 leading-relaxed tracking-wide uppercase max-w-xl">
+          <div className="flex flex-col gap-4 md:gap-8 border-l-2 border-acid pl-4 md:pl-8 py-2">
+            <p className="text-xs md:text-sm font-semibold text-white/80 leading-relaxed tracking-wide uppercase max-w-xl line-clamp-4 md:line-clamp-none">
               {currentItem.description}
             </p>
 
-            <div className="flex items-center gap-6">
-              <button className="text-white border-b border-acid pb-1 text-[10px] font-bold tracking-[0.3em] hover:text-acid transition-all uppercase flex items-center gap-3 group">
-                READ_FULL_LOG <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            <div className="flex flex-wrap items-center gap-4 md:gap-6">
+              <button className="text-white border-b border-acid pb-1 text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] hover:text-acid transition-all uppercase flex items-center gap-2 md:gap-3 group">
+                READ_LOG <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase">
+              <div className="flex items-center gap-2 text-[9px] md:text-[10px] font-bold tracking-[0.15em] md:tracking-[0.2em] text-white/50 uppercase">
                 <Activity size={12} className="text-acid" /> {currentItem.stat}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Navigation & Progress (Absolute positioned to keep main content left) */}
-        <div className="absolute right-8 md:right-16 bottom-12 flex flex-col items-end gap-6">
+        {/* Navigation Controls - Mobile: Bottom center, Desktop: Bottom right */}
+        <div className="w-full md:w-auto md:absolute md:right-8 lg:right-16 md:bottom-12 flex flex-col items-center md:items-end gap-4 md:gap-6 mt-8 md:mt-0">
           {/* Custom Pagination Dots */}
-          <div className="flex gap-2 mb-4">
+          <div className="flex gap-2 mb-2 md:mb-4">
             {newsItems.map((_, idx) => (
               <button
                 key={idx}
@@ -146,7 +146,7 @@ const Gallery = () => {
                   setIsAutoPlaying(false);
                   setActiveIndex(idx);
                 }}
-                className={`h-1 transition-all duration-300 ${idx === activeIndex ? "w-12 bg-acid" : "w-4 bg-white/20 hover:bg-white/40"
+                className={`h-1 transition-all duration-300 ${idx === activeIndex ? "w-8 md:w-12 bg-acid" : "w-3 md:w-4 bg-white/20 hover:bg-white/40"
                   }`}
               />
             ))}
@@ -156,26 +156,26 @@ const Gallery = () => {
           <div className="flex gap-2">
             <button
               onClick={() => handleManualNav("prev")}
-              className="w-12 h-12 border border-white/10 bg-black/50 hover:bg-white hover:text-black flex items-center justify-center text-white transition-colors backdrop-blur-sm"
+              className="w-10 h-10 md:w-12 md:h-12 border border-white/10 bg-black/50 hover:bg-white hover:text-black flex items-center justify-center text-white transition-colors backdrop-blur-sm"
             >
-              <ArrowLeft size={18} />
+              <ArrowLeft size={16} className="md:w-[18px] md:h-[18px]" />
             </button>
             <button
               onClick={() => handleManualNav("next")}
-              className="w-12 h-12 border border-white/10 bg-black/50 hover:bg-white hover:text-black flex items-center justify-center text-white transition-colors backdrop-blur-sm"
+              className="w-10 h-10 md:w-12 md:h-12 border border-white/10 bg-black/50 hover:bg-white hover:text-black flex items-center justify-center text-white transition-colors backdrop-blur-sm"
             >
-              <ArrowRight size={18} />
+              <ArrowRight size={16} className="md:w-[18px] md:h-[18px]" />
             </button>
           </div>
 
           {/* Current Index Indicator */}
-          <div className="text-[10px] font-bold tracking-[0.3em] text-white/30 font-mono">
+          <div className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] text-white/30 font-mono">
             {String(activeIndex + 1).padStart(2, "0")} / {String(newsItems.length).padStart(2, "0")}
           </div>
         </div>
 
         {/* Decorative Tech Elements */}
-        <div className="absolute top-12 right-16 hidden lg:block">
+        <div className="absolute top-12 right-4 md:right-16 hidden lg:block">
           <div className="text-right">
             <div className="text-[9px] font-bold tracking-[0.3em] text-white/30 mb-1">UPLINK_STATUS</div>
             <div className="flex items-center justify-end gap-2 text-white font-bold text-xs tracking-widest">
