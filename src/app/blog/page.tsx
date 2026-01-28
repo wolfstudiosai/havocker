@@ -37,15 +37,11 @@ const BlogPage: React.FC = () => {
   return (
     <div className="w-full min-h-screen bg-white pt-[80px] relative">
       {/* --- HEADER --- */}
-      <div className="w-full bg-white border-b border-black/5 px-6 md:px-12 py-10 flex flex-col md:flex-row justify-between items-end relative z-10">
-        <div className="flex flex-col">
-          <span className="text-[10px] font-bold tracking-[0.4em] text-ink/40 uppercase mb-4">
-            COMMUNITY HUB /// LATEST INTEL
-          </span>
-          <h1 className="text-6xl md:text-9xl font-bold tracking-tighter leading-[0.85] text-ink mb-[-10px]">
-            HAVØK FEED
-          </h1>
-        </div>
+      <div className="flex flex-col p-6 sm:p-8 lg:p-10">
+        <span className="text-[10px] font-bold tracking-[0.4em] text-ink/40 uppercase mb-4">
+          COMMUNITY HUB /// LATEST INTEL
+        </span>
+        <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl leading-none tracking-tighter text-ink">HAVØK FEED</h2>
       </div>
 
       <div className="relative">

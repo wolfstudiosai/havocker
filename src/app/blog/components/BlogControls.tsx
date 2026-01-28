@@ -11,7 +11,7 @@ interface BlogControlsProps {
 
 const BlogControls: React.FC<BlogControlsProps> = ({ activeTab, setActiveTab, filter, setFilter, resetSelection }) => {
   return (
-    <div className="sticky top-[80px] z-30 bg-white/90 backdrop-blur-md border-b border-black/5 w-full shadow-sm">
+    <div className=" bg-white/90 backdrop-blur-md border-b border-black/5 w-full shadow-sm">
       <div className="max-w-[1920px] mx-auto px-6 md:px-12 py-3 overflow-x-auto no-scrollbar flex items-center justify-between gap-8">
 
         {/* 1. Toggles (News / Forum) */}
