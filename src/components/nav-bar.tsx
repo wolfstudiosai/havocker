@@ -12,10 +12,11 @@ const NavBar = ({ activeTab, setActiveTab }: NavBarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const tabs = [
-    { id: "overview", label: "01 // OVERVIEW" },
-    { id: "specs", label: "02 // SYSTEMS" },
-    { id: "gallery", label: "03 // VISUALS" },
-    { id: "order", label: "04 // ACQUISITION" },
+    { id: "overview", label: "01 // Overview" },
+    { id: "specs", label: "02 // Specs" },
+    { id: "gallery", label: "03 // Gallery" },
+    { id: "order", label: "04 // Order" },
+    { id: "news", label: "05 // News" },
   ];
 
   const handleTabClick = (tabId: string) => {
@@ -31,7 +32,7 @@ const NavBar = ({ activeTab, setActiveTab }: NavBarProps) => {
           <div className="flex flex-col">
             <span className="font-bold text-xl sm:text-2xl leading-none tracking-tighter">HAVOCKER</span>
             <span className="text-[8px] sm:text-[9px] tracking-[0.3em] sm:tracking-[0.4em] opacity-40 font-bold uppercase">
-              L3e /// High Performance Lab
+              L3e /// High Performance Electric
             </span>
           </div>
 
