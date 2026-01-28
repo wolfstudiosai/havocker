@@ -30,7 +30,7 @@ const Footer = () => {
           <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
             <Activity size={14} className="text-acid animate-pulse" />
             <span className="text-[10px] sm:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] text-ink font-bold uppercase">
-              JOIN_THE_MANIFEST_UPLINK
+              JOIN THE COMMUNITY
             </span>
           </div>
           <div className="relative group">

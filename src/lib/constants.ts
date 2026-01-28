@@ -37,42 +37,42 @@ export const CHASSIS_SPECS = [
 export const BIKE_PARTS: BikePart[] = [
   {
     id: "motor",
-    label: "VECTOR MOTOR",
-    description: "High-performance brushless motor with intelligent sine wave controller.",
+    label: "DRIVE MOTOR",
+    description: "Smooth, high-torque brushless motor tuned for instant acceleration.",
     specs: [{ label: "Power", value: "21KW" }, { label: "Torque", value: "550N.m" }],
     coordinates: { x: 50, y: 65 },
   },
   {
     id: "battery",
-    label: "POWER MATRIX",
-    description: "Quick-swap 72V system with advanced thermal management.",
+    label: "BATTERY SYSTEM",
+    description: "Long-range 72V pack with easy swap capability for endless riding.",
     specs: [{ label: "Capacity", value: "58Ah" }, { label: "Voltage", value: "72V" }],
     coordinates: { x: 45, y: 45 },
   },
   {
     id: "suspension",
-    label: "AERO SUSPENSION",
-    description: "Fully adjustable inverted forks with nitrogen-charged rear shock.",
+    label: "SUSPENSION",
+    description: "Plush, adjustable forks designed to handle any terrain comfortably.",
     specs: [{ label: "Travel", value: "200mm" }, { label: "Type", value: "Air/Oil" }],
     coordinates: { x: 25, y: 70 },
   },
   {
     id: "chassis",
-    label: "CARBON FRAME",
-    description: "Hybrid alloy and carbon fiber construction for optimal rigidity.",
+    label: "HYBRID FRAME",
+    description: "Lightweight alloy and carbon fiber blend for agile handling.",
     specs: [{ label: "Material", value: "Alloy/Carbon" }, { label: "Weight", value: "89KG" }],
     coordinates: { x: 60, y: 50 },
   },
 ];
 
 export const CONFIG_OPTIONS: ConfigOption[] = [
-  { id: "stealth_black", label: "VOID BLACK", price: 0, type: "livery", detail: "Matte Finish / Absorb" },
-  { id: "ion_blue", label: "ION BLUE", price: 250, type: "livery", detail: "Gloss / High Voltage" },
-  { id: "arctic_camo", label: "ARCTIC CAMO", price: 400, type: "livery", detail: "Pattern / Geometric" },
+  { id: "stealth_black", label: "Matte Black", price: 0, type: "livery", detail: "Satin Finish" },
+  { id: "ion_blue", label: "Kinetic Orange", price: 250, type: "livery", detail: "Gloss Finish" },
+  { id: "arctic_camo", label: "ARCTIC CAMO", price: 400, type: "livery", detail: "Geometric Pattern" },
 
-  { id: "fast_charger", label: "HYPER CHARGER (20A)", price: 300, type: "upgrade", detail: "2.5h Charge Time" },
-  { id: "street_tires", label: "SUPERMOTO WHEELSET", price: 450, type: "upgrade", detail: "Slick Tires / 17 Inch" },
-  { id: "controller_unlock", label: "FIRMWARE: LUDICROUS", price: 150, type: "upgrade", detail: "Unlocks 120km/h" },
+  { id: "fast_charger", label: "Faster Charger", price: 300, type: "upgrade", detail: "2.5h Charge Time" },
+  { id: "street_tires", label: "Street Tires", price: 450, type: "upgrade", detail: "Slick Tires / 17 Inch" },
+  { id: "controller_unlock", label: "Unlock: Sport Mode", price: 150, type: "upgrade", detail: "Max Speed: 120km/h" },
 ];
 
 export const BASE_PRICE = 4500;

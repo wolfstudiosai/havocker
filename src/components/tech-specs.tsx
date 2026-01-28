@@ -10,11 +10,23 @@ const TechSpecs = () => {
 
   return (
     <div className="w-full bg-white border-t border-black/5 relative">
+      {/* top stripe */}
+      <div className="w-full border-b border-black/5 bg-transparent overflow-x-auto no-scrollbar">
+        <div className="flex w-max lg:w-full">
+          {HAVOCKER_SPECS.slice(8, 12).concat(HAVOCKER_SPECS.slice(0, 4)).map((spec, i) => (
+            <div key={`top-${i}`} className="flex-shrink-0 w-40 md:w-auto md:flex-1 p-4 border-r border-black/5 last:border-r-0 hover:bg-dark/40 transition-colors group cursor-default">
+              <div className="text-[8px] text-ink/30 uppercase tracking-[0.3em] mb-1 font-bold group-hover:text-acid">{spec.item}</div>
+              <div className={`text-xs font-bold tracking-tight ${spec.highlight ? 'text-acid' : 'text-ink'}`}>{spec.value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="flex flex-col lg:flex-row min-h-[500px] lg:h-[620px]">
         {/* Column 1: Selector */}
         <div className="w-full lg:w-72 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col bg-dark/50">
           <div className="p-4 md:p-6 border-b border-black/5 bg-white">
-            <h3 className="text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] text-ink">SYSTEM_MODULES</h3>
+            <h3 className="text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] text-ink">COMPONENTS</h3>
           </div>
           <div className="flex-grow overflow-x-auto lg:overflow-x-visible overflow-y-auto no-scrollbar">
             {/* Mobile: Horizontal scroll, Desktop: Vertical list */}
@@ -39,8 +51,8 @@ const TechSpecs = () => {
               ))}
             </div>
             <div className="p-4 md:p-6 opacity-30 mt-auto hidden lg:block">
-              <div className="text-[9px] text-ink font-bold tracking-widest mb-1">DIAGNOSTIC: OK</div>
-              <div className="text-[9px] text-ink font-bold tracking-widest">MEM_LINK: ACTIVE</div>
+              <div className="text-[9px] text-ink font-bold tracking-widest mb-1">SYSTEM: CHECKED </div>
+              <div className="text-[9px] text-ink font-bold tracking-widest">LINK: ONLINE</div>
             </div>
           </div>
         </div>
@@ -82,7 +94,7 @@ const TechSpecs = () => {
           {/* Float Overlay - Repositioned for mobile */}
           <div className="absolute top-4 md:top-10 right-4 md:right-10 bg-white border border-black/5 p-4 md:p-6 shadow-xl max-w-[200px] md:max-w-[280px] z-20">
             <div className="text-[8px] md:text-[9px] text-acid mb-1 md:mb-2 tracking-[0.3em] md:tracking-[0.4em] font-bold">
-              TARGET_0{BIKE_PARTS.indexOf(activePart) + 1}
+              PART_0{BIKE_PARTS.indexOf(activePart) + 1}
             </div>
             <div className="text-lg md:text-2xl font-bold text-ink leading-none mb-1 md:mb-2 uppercase tracking-tight">
               {activePart.label}
@@ -96,7 +108,7 @@ const TechSpecs = () => {
         {/* Column 3: Data */}
         <div className="w-full lg:w-96 bg-white flex flex-col">
           <div className="p-4 md:p-6 border-b border-black/5 bg-dark/20">
-            <h3 className="text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] text-ink/40">MODULE_TELEMETRY</h3>
+            <h3 className="text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] text-ink/40">PERFORMANCE STATS</h3>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-1 overflow-y-auto no-scrollbar">
             {activePart.specs.map((spec, i) => (
@@ -107,7 +119,7 @@ const TechSpecs = () => {
                 <span className="text-[9px] md:text-[10px] text-ink/40 uppercase tracking-[0.15em] md:tracking-[0.2em] font-bold group-hover:text-acid">
                   {spec.label}
                 </span>
-                <span className="text-sm md:text-lg text-ink font-bold tracking-tighter">{spec.value}</span>
+                <span className="text-sm md:text-lg text-ink font-semibold tracking-tighter">{spec.value}</span>
               </div>
             ))}
             <div className="p-4 md:p-8 space-y-4 md:space-y-6 col-span-2 lg:col-span-1">
@@ -117,7 +129,7 @@ const TechSpecs = () => {
                   <span className="text-ink">38.2%</span>
                 </div>
                 <div className="w-full h-1 md:h-1.5 bg-dark">
-                  <div className="h-full bg-acid w-[38%] shadow-[0_0_8px_#00C2FF]" />
+                  <div className="h-full bg-acid w-[38%] " />
                 </div>
               </div>
               <div className="space-y-2">
@@ -126,7 +138,7 @@ const TechSpecs = () => {
                   <span className="text-ink">94.8%</span>
                 </div>
                 <div className="w-full h-1 md:h-1.5 bg-dark">
-                  <div className="h-full bg-acid w-[94.8%] shadow-[0_0_8px_#00C2FF]" />
+                  <div className="h-full bg-acid w-[94.8%] " />
                 </div>
               </div>
             </div>
