@@ -30,8 +30,8 @@ const NavBar = ({ activeTab, setActiveTab }: NavBarProps) => {
         <div className="w-full flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
           {/* Logo / Coordinates */}
           <div className="flex flex-col">
-            <span className="font-bold text-xl sm:text-2xl leading-none tracking-tighter">HAVOCKER</span>
-            <span className="text-[8px] sm:text-[9px] tracking-[0.3em] sm:tracking-[0.4em] opacity-40 font-bold uppercase">
+            <span className="font-bold text-xl sm:text-2xl leading-none tracking-tighter text-white">HAVØK X1</span>
+            <span className="text-[8px] sm:text-[9px] tracking-[0.3em] sm:tracking-[0.4em] font-bold uppercase text-[rgba(255,255,255,0.4)]">
               L3e /// High Performance Electric
             </span>
           </div>
@@ -43,8 +43,8 @@ const NavBar = ({ activeTab, setActiveTab }: NavBarProps) => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`
-                  text-[10px] xl:text-[11px] font-bold tracking-[0.15em] xl:tracking-[0.2em] transition-all duration-300 relative py-1
-                  ${activeTab === tab.id ? "text-acid" : "text-ink/40 hover:text-ink"}
+                  text-[10px] xl:text-[11px] font-bold tracking-[0.15em] xl:tracking-[0.2em] transition-all duration-300 relative py-1 cursor-pointer
+                  ${activeTab === tab.id ? "text-acid" : "text-[rgba(255,255,255,0.4)] hover:text-white"}
                 `}
               >
                 {tab.label}
@@ -60,7 +60,7 @@ const NavBar = ({ activeTab, setActiveTab }: NavBarProps) => {
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="hidden sm:flex items-center gap-2 border-l border-black/10 pl-3 sm:pl-4 h-6">
               <div className="w-1.5 h-1.5 rounded-full bg-acid animate-pulse" />
-              <span className="text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] font-bold opacity-60">LAB_ACTIVE</span>
+              <span className="text-[9px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] font-bold opacity-60 uppercase text-[rgba(255,255,255,0.4)]">Store Open</span>
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
