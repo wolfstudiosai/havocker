@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Activity } from 'lucide-react';
 
-// --- MOCK CONTENT COMPONENT ---
+
 const MockArticleContent = () => (
   <motion.div
     initial={{ opacity: 0, y: 40 }}
@@ -94,7 +94,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ post, onClose }) => {
           layoutId={`post-${post.id}`}
           className="fixed inset-0 z-100 bg-white overflow-y-auto w-full h-full flex flex-col"
         >
-          {/* Close Button & Navigation */}
+
           <div className="fixed top-0 w-full z-110 flex justify-between items-center px-8 py-6 pointer-events-none">
             <div className="bg-black/50 backdrop-blur-md px-4 py-2 rounded-full pointer-events-auto">
               <span className="text-white text-[10px] font-bold tracking-[0.3em] uppercase">READING MODE</span>
@@ -107,7 +107,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ post, onClose }) => {
             </button>
           </div>
 
-          {/* Hero Image Expansion */}
+
           <div className="relative w-full h-[60vh] md:h-[70vh] shrink-0">
             <motion.img
               layoutId={`post-image-${post.id}`}
@@ -134,7 +134,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ post, onClose }) => {
             </div>
           </div>
 
-          {/* Content */}
+
           <div className="grow bg-white relative z-10">
             <MockArticleContent />
           </div>

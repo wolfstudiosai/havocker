@@ -9,7 +9,7 @@ const MockThreadContent = ({ thread }: { thread: any }) => (
     transition={{ delay: 0.3 }}
     className="max-w-4xl mx-auto py-8 px-6 pb-32"
   >
-    {/* Original Post */}
+
     <div className="bg-[#F8F9FA] border border-black/5 p-8 mb-12 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-1 h-full bg-acid" />
       <div className="flex justify-between items-start mb-6">
@@ -39,7 +39,7 @@ const MockThreadContent = ({ thread }: { thread: any }) => (
       </div>
     </div>
 
-    {/* Replies */}
+
     <h4 className="text-[10px] font-bold tracking-[0.2em] text-ink/30 uppercase mb-8 border-b border-black/5 pb-2">
       {thread.replies} RESPONSES
     </h4>
@@ -65,7 +65,7 @@ const MockThreadContent = ({ thread }: { thread: any }) => (
       ))}
     </div>
 
-    {/* Reply Box */}
+
     <div className="fixed bottom-0 left-0 w-full bg-white border-t border-black/10 p-6 z-20">
       <div className="max-w-4xl mx-auto flex gap-4">
         <input
@@ -94,7 +94,7 @@ const ThreadView: React.FC<ThreadViewProps> = ({ thread, onClose }) => {
           layoutId={`thread-${thread.id}`}
           className="fixed inset-0 z-100 bg-white overflow-hidden w-full h-full flex flex-col"
         >
-          {/* Header */}
+
           <div className="bg-black text-white p-8 md:p-12 relative shrink-0">
             <button
               onClick={onClose}
@@ -122,7 +122,7 @@ const ThreadView: React.FC<ThreadViewProps> = ({ thread, onClose }) => {
             </div>
           </div>
 
-          {/* Content Scroll Area */}
+
           <div className="grow overflow-y-auto bg-white relative">
             <MockThreadContent thread={thread} />
           </div>

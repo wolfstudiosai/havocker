@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { BLOG_POSTS, FORUM_THREADS } from '@/lib/constants';
 
-// HELPER COMPONENTS
+
 import BlogHero from './components/BlogHero';
 import BlogControls from './components/BlogControls';
 import BlogGrid from './components/BlogGrid';
@@ -19,13 +19,13 @@ const BlogPage: React.FC = () => {
   const [selectedPost, setSelectedPost] = useState<any>(null);
   const [selectedThread, setSelectedThread] = useState<any>(null);
 
-  // DATA FILTERING
+
   const featuredPosts = BLOG_POSTS.filter(p => p.featured);
   const filteredPosts = filter === 'ALL'
     ? BLOG_POSTS
     : BLOG_POSTS.filter(p => p.category === filter);
 
-  // ANIMATION VARIANTS
+
   const gridVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,7 +36,7 @@ const BlogPage: React.FC = () => {
 
   return (
     <div className="w-full min-h-screen bg-white pt-[80px] relative">
-      {/* --- HEADER --- */}
+
       <div className="flex flex-col p-6 sm:p-8 lg:p-10">
         <span className="text-[10px] font-bold tracking-[0.4em] text-ink/40 uppercase mb-4">
           COMMUNITY HUB /// LATEST INTEL
