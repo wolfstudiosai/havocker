@@ -36,7 +36,7 @@ const Footer = () => {
           <div className="relative group">
             <input
               type="email"
-              placeholder="OPERATOR_EMAIL"
+              placeholder="Your email address"
               className="w-full bg-dark/20 border border-black/5 px-4 sm:px-6 py-4 sm:py-5 text-ink font-bold tracking-wider sm:tracking-widest placeholder:text-ink/20 focus:outline-none focus:border-acid transition-all pr-28 sm:pr-32 uppercase text-xs sm:text-sm"
             />
             <button className="absolute right-1 sm:right-2 top-1 sm:top-2 bottom-1 sm:bottom-2 bg-ink text-white px-3 sm:px-6 font-bold text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] hover:bg-acid hover:text-black transition-all uppercase flex items-center gap-1 sm:gap-2">
@@ -67,16 +67,6 @@ const Footer = () => {
           <span>RIDE THE FUTURE</span>
           <span>HAVØK X1</span>
         </div>
-      </div>
-
-      {/* Final Legal Copyright */}
-      <div className="bg-white border-t border-black/5 px-4 sm:px-6 md:px-10 py-3 sm:py-4 flex flex-col sm:flex-row justify-between items-center gap-2">
-        <span className="text-[8px] sm:text-[9px] text-ink/20 font-bold tracking-wider sm:tracking-widest uppercase text-center sm:text-left">
-          © 2025 VELIMOTOR /// ALL RIGHTS RESERVED
-        </span>
-        <span className="text-[8px] sm:text-[9px] text-ink/20 font-bold tracking-wider sm:tracking-widest uppercase text-center sm:text-right">
-          SESSION ID: {Math.random().toString(36).substring(7).toUpperCase()}
-        </span>
       </div>
     </footer>
   );
