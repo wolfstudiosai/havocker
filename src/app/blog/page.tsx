@@ -205,12 +205,9 @@ const BlogPage: React.FC = () => {
             HAVØK FEED
           </h1>
         </div>
-        {/* Note: Tabs moved to filter bar below */}
       </div>
 
-      {/* --- CONTENT AREA --- */}
       <div className="relative">
-        {/* HERO SLIDER (Only visible for NEWS and when nothing is selected) */}
         <AnimatePresence>
           {activeTab === 'NEWS' && !selectedPost && !selectedThread && (
             <motion.div
@@ -275,27 +272,22 @@ const BlogPage: React.FC = () => {
           )}
         </AnimatePresence>
 
-        {/* STICKY CONTROL BAR (Unified Tabs + Filters) */}
         <div className="sticky top-[80px] z-30 bg-white/90 backdrop-blur-md border-b border-black/5 w-full shadow-sm">
-          <div className="max-w-[1920px] mx-auto px-6 md:px-12 py-3 overflow-x-auto no-scrollbar flex items-center justify-between gap-8">
+          <div className="max-w-[1920px] mx-auto px-6 md:px-12 py-3 overflow-x-auto no-scrollbar flex items-center justify-between gap-8">            <div className="flex bg-black/5 p-1 rounded-sm shrink-0">
+            <button
+              onClick={() => { setActiveTab('NEWS'); setSelectedPost(null); setSelectedThread(null); }}
+              className={`px-6 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-all rounded-sm ${activeTab === 'NEWS' ? 'bg-ink text-white shadow-md' : 'text-ink/40 hover:text-ink hover:bg-white/50'}`}
+            >
+              LATEST NEWS
+            </button>
+            <button
+              onClick={() => { setActiveTab('FORUM'); setSelectedPost(null); setSelectedThread(null); }}
+              className={`px-6 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-all rounded-sm ${activeTab === 'FORUM' ? 'bg-ink text-white shadow-md' : 'text-ink/40 hover:text-ink hover:bg-white/50'}`}
+            >
+              FORUM DISC.
+            </button>
+          </div>
 
-            {/* 1. Toggles (News / Forum) */}
-            <div className="flex bg-black/5 p-1 rounded-sm shrink-0">
-              <button
-                onClick={() => { setActiveTab('NEWS'); setSelectedPost(null); setSelectedThread(null); }}
-                className={`px-6 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-all rounded-sm ${activeTab === 'NEWS' ? 'bg-ink text-white shadow-md' : 'text-ink/40 hover:text-ink hover:bg-white/50'}`}
-              >
-                LATEST NEWS
-              </button>
-              <button
-                onClick={() => { setActiveTab('FORUM'); setSelectedPost(null); setSelectedThread(null); }}
-                className={`px-6 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-all rounded-sm ${activeTab === 'FORUM' ? 'bg-ink text-white shadow-md' : 'text-ink/40 hover:text-ink hover:bg-white/50'}`}
-              >
-                FORUM DISC.
-              </button>
-            </div>
-
-            {/* 2. Filters */}
             <div className="flex items-center gap-6 min-w-max border-l border-black/10 pl-8">
               <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] text-ink/40 uppercase mr-2">
                 <Filter size={12} /> FILTER
@@ -317,7 +309,6 @@ const BlogPage: React.FC = () => {
           </div>
         </div>
 
-        {/* MAIN CONTENT AREA */}
         <div className="relative min-h-[50vh] bg-dark">
           {activeTab === 'NEWS' ? (
             <motion.div
@@ -325,7 +316,6 @@ const BlogPage: React.FC = () => {
               variants={gridVariants}
               animate={selectedPost ? "hidden" : "visible"}
             >
-              {/* BLOG GRID */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full border-b border-black/5 bg-white">
                 {filteredPosts.map((post, idx) => (
                   <motion.div
@@ -364,7 +354,6 @@ const BlogPage: React.FC = () => {
                 ))}
               </div>
 
-              {/* Footer of Grid */}
               <div className="w-full py-16 flex flex-col items-center justify-center">
                 <p className="text-[10px] font-bold tracking-[0.3em] text-ink/40 uppercase mb-6">END OF STREAM</p>
                 <button className="px-8 py-3 border border-ink/10 bg-white hover:bg-ink hover:text-white transition-all text-[10px] font-bold tracking-[0.3em] uppercase shadow-sm">
@@ -378,7 +367,6 @@ const BlogPage: React.FC = () => {
               animate={selectedThread ? "hidden" : "visible"}
               className="w-full bg-white min-h-[80vh]"
             >
-              {/* Forum Stats Strip */}
               <div className="w-full border-b border-black/5 bg-dark px-6 md:px-12 py-8">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                   <div className="flex gap-8 divide-x divide-black/10">
@@ -404,7 +392,6 @@ const BlogPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* FORUM GRID */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-b border-black/5">
                 {FORUM_THREADS.map((thread, idx) => (
                   <motion.div
@@ -464,14 +451,12 @@ const BlogPage: React.FC = () => {
 
       </div>
 
-      {/* --- EXPANDED BLOG POST VIEW (IN-SCREEN) --- */}
       <AnimatePresence>
         {selectedPost && (
           <motion.div
             layoutId={`post-${selectedPost.id}`}
             className="fixed inset-0 z-100 bg-white overflow-y-auto w-full h-full flex flex-col"
           >
-            {/* Close Button & Navigation */}
             <div className="fixed top-0 w-full z-110 flex justify-between items-center px-8 py-6 pointer-events-none">
               <div className="bg-black/50 backdrop-blur-md px-4 py-2 rounded-full pointer-events-auto">
                 <span className="text-white text-[10px] font-bold tracking-[0.3em] uppercase">READING MODE</span>
@@ -484,7 +469,6 @@ const BlogPage: React.FC = () => {
               </button>
             </div>
 
-            {/* Hero Image Expansion */}
             <div className="relative w-full h-[60vh] md:h-[70vh] shrink-0">
               <motion.img
                 layoutId={`post-image-${selectedPost.id}`}
@@ -511,7 +495,6 @@ const BlogPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Content */}
             <div className="grow bg-white relative z-10">
               <MockArticleContent />
             </div>
@@ -519,14 +502,12 @@ const BlogPage: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* --- EXPANDED FORUM THREAD VIEW (IN-SCREEN) --- */}
       <AnimatePresence>
         {selectedThread && (
           <motion.div
             layoutId={`thread-${selectedThread.id}`}
             className="fixed inset-0 z-100 bg-white overflow-hidden w-full h-full flex flex-col"
           >
-            {/* Header */}
             <div className="bg-black text-white p-8 md:p-12 relative shrink-0">
               <button
                 onClick={() => setSelectedThread(null)}
@@ -554,7 +535,6 @@ const BlogPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Content Scroll Area */}
             <div className="grow overflow-y-auto bg-white relative">
               <MockThreadContent thread={selectedThread} />
             </div>

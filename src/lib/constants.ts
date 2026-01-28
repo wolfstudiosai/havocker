@@ -83,7 +83,7 @@ export const BLOG_POSTS = [
     title: "MOJAVE DESERT TELEMETRY REPORT",
     category: "ENGINEERING",
     date: "OCT 24, 2025",
-    image: "https://images.unsplash.com/photo-1558981403-8833075b3b19?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/gallery-1.jpg",
     featured: true,
   },
   {
@@ -91,7 +91,7 @@ export const BLOG_POSTS = [
     title: "THE FUTURE OF ELECTRIC FREEDOM",
     category: "LIFESTYLE",
     date: "OCT 20, 2025",
-    image: "https://images.unsplash.com/photo-1444491741275-3747c33cc99b?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/gallery-2.jpg",
     featured: true,
   },
   {
@@ -99,7 +99,7 @@ export const BLOG_POSTS = [
     title: "URBAN ASSAULT: X1 IN THE CITY",
     category: "TECH",
     date: "OCT 15, 2025",
-    image: "https://images.unsplash.com/photo-1609630875171-b132137746f1?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/gallery-3.jpg",
     featured: false,
   },
   {
@@ -107,7 +107,7 @@ export const BLOG_POSTS = [
     title: "REDEFINING TORQUE VECTORING",
     category: "ENGINEERING",
     date: "OCT 12, 2025",
-    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/gallery-1.jpg",
     featured: false,
   },
 ];
