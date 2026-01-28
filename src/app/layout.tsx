@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Rajdhani } from "next/font/google";
+import { Oswald } from "next/font/google";
 import "./globals.css";
+import { NavProvider } from "@/context/nav-context";
+import NavBar from "@/components/nav-bar";
+import Footer from "@/components/footer";
 
-const rajdhani = Rajdhani({
+const oswald = Oswald({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-rajdhani",
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-oswald",
 });
 
 export const metadata: Metadata = {
@@ -20,8 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rajdhani.className} antialiased`}>
-        {children}
+      <body className={`${oswald.className} antialiased`}>
+        <NavProvider>
+          <NavBar />
+          {children}
+          <Footer />
+        </NavProvider>
         <div className="noise-overlay" />
       </body>
     </html>

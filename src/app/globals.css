@@ -2,14 +2,14 @@
 
 @theme {
   /* Custom Colors */
-  --color-acid: #00C2FF;
+  --color-acid: #ff3d00;
   --color-dark: #F0F2F5;
   --color-surface: #FFFFFF;
   --color-accent: #E2E8F0;
   --color-ink: #0F172A;
 
   /* Font Family */
-  --font-sans: "Rajdhani", sans-serif;
+  --font-sans: "Oswald", sans-serif;
 
   /* Custom Animations */
   --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -18,13 +18,23 @@
 
   /* Keyframes */
   @keyframes scanline {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(100%);
+    }
   }
 
   @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
   }
 }
 
@@ -32,7 +42,7 @@
 body {
   background-color: #F0F2F5;
   color: #0F172A;
-  font-family: "Rajdhani", sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 /* Custom Utilities */

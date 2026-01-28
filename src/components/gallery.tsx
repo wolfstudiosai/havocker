@@ -13,10 +13,10 @@ const Gallery = () => {
       type: "VIDEO_LOG",
       date: "OCT 12, 2025",
       src: "/images/gallery-1.jpg",
-      title: "THERMAL_RESISTANCE_VALIDATION",
+      title: "HEAT TESTING",
       tags: ["ENGINEERING", "FIELD_TEST", "MOJAVE"],
       description:
-        "Detailed analysis of the vector motor under extreme heat conditions in the Mojave sector. Our telemetry indicates 98% efficiency retention at 45°C ambient temperature. The new cooling fins on the controller housing have successfully dissipated peak thermal loads.",
+        "Testing the motor under extreme heat in the Mojave. Our cooling systems kept performance optimal even at 45°C. The new airflow design proved essential for consistent power delivery.",
       stat: "EFFICIENCY: 98%",
     },
     {
@@ -27,7 +27,7 @@ const Gallery = () => {
       title: "STRUCTURAL_INTEGRITY_REPORT",
       tags: ["MATERIAL_SCIENCE", "QA", "CARBON"],
       description:
-        "Micro-fracture analysis of the carbon-alloy weave after 10,000 cycles of vertical stress testing. Zero degradation detected in critical load-bearing nodes. The frame rigidity has exceeded our initial simulations by a factor of 1.4x.",
+        "Micro - fracture analysis of the carbon- alloy weave after 10,000 cycles of vertical stress testing.Zero degradation detected in critical load - bearing nodes.The frame rigidity has exceeded our initial simulations by a factor of 1.4x.",
       stat: "STRESS: NEG",
     },
     {
@@ -66,7 +66,7 @@ const Gallery = () => {
   const currentItem = newsItems[activeIndex];
 
   return (
-    <div className="w-full bg-black border-t border-white/10 relative overflow-hidden flex flex-col min-h-[600px] h-auto md:h-[90vh] md:min-h-[700px]">
+    <div className="w-full bg-black border-t border-white/10 relative overflow-hidden flex flex-col md:min-h-[600px] h-auto md:h-[90vh] md:min-h-[700px]">
       {/* Background Image Layer with Heavy Dark Overlay */}
       <div className="absolute inset-0 z-0">
         {newsItems.map((item, idx) => (
@@ -77,12 +77,12 @@ const Gallery = () => {
           >
             <img src={item.src} alt={item.title} className="w-full h-full object-cover grayscale opacity-60" />
             {/* Left-heavy gradient for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-80" />
           </div>
         ))}
         {/* Subtle Grid on top of darkness */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10 bg-[size:30px_30px] md:bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-10 bg-size-[30px_30px] md:bg-size-[40px_40px] pointer-events-none mix-blend-overlay" />
       </div>
 
       {/* Content Container - Stacked Left */}
@@ -90,9 +90,9 @@ const Gallery = () => {
         {/* Header / Meta */}
         <div className="mb-4 md:mb-6 flex flex-wrap items-center gap-3 md:gap-6">
           <div className="px-2 md:px-3 py-1 bg-white text-black text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] uppercase flex items-center gap-2">
-            <Aperture size={12} className="text-acid" /> VISUAL_LOG
+            <Aperture size={12} className="text-acid" /> NEWS // LATEST UPDATES
           </div>
-          <div className="h-px w-10 md:w-20 bg-white/20 hidden sm:block" />
+          {/* <div className="h-px w-10 md:w-20 bg-white/20 hidden sm:block" /> */}
           <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] text-white/50 uppercase">
             {currentItem.type} /// {currentItem.date}
           </span>
@@ -102,7 +102,7 @@ const Gallery = () => {
         <div className="max-w-full sm:max-w-xl md:max-w-3xl relative">
           <h2
             key={currentItem.id}
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.85] mb-4 md:mb-8 animate-in fade-in slide-in-from-left-4 duration-500 uppercase drop-shadow-2xl break-words"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.85] mb-4 md:mb-8 animate-in fade-in slide-in-from-left-4 duration-500 uppercase drop-shadow-2xl wrap-break-word"
           >
             {currentItem.title}
           </h2>
@@ -125,8 +125,8 @@ const Gallery = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 md:gap-6">
-              <button className="text-white border-b border-acid pb-1 text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] hover:text-acid transition-all uppercase flex items-center gap-2 md:gap-3 group">
-                READ_LOG <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              <button className="text-white text-[9px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] hover:text-acid transition-all uppercase flex items-center gap-2 md:gap-3 group cursor-pointer">
+                READ ARTICLE <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
               <div className="flex items-center gap-2 text-[9px] md:text-[10px] font-bold tracking-[0.15em] md:tracking-[0.2em] text-white/50 uppercase">
                 <Activity size={12} className="text-acid" /> {currentItem.stat}
@@ -175,11 +175,11 @@ const Gallery = () => {
         </div>
 
         {/* Decorative Tech Elements */}
-        <div className="absolute top-12 right-4 md:right-16 hidden lg:block">
+        <div className="absolute top-12 right-4 md:right-16 hidden lg:block ">
           <div className="text-right">
-            <div className="text-[9px] font-bold tracking-[0.3em] text-white/30 mb-1">UPLINK_STATUS</div>
+            <div className="text-[9px] font-bold tracking-[0.3em] text-white/30 mb-1">SYSTEM STATUS</div>
             <div className="flex items-center justify-end gap-2 text-white font-bold text-xs tracking-widest">
-              <div className="w-1.5 h-1.5 bg-acid rounded-full animate-pulse shadow-[0_0_10px_#00C2FF]" /> ONLINE
+              <div className="w-1.5 h-1.5 bg-acid rounded-full animate-pulse" /> ONLINE
             </div>
           </div>
         </div>
