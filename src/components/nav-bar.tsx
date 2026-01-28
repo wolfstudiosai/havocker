@@ -2,17 +2,21 @@
 
 import { useState } from "react";
 import { Menu, X, ArrowRight, Instagram, Twitter, Youtube, User } from "lucide-react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useNav } from "@/context/nav-context";
 
 interface NavBarProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
   isLoggedIn?: boolean;
   onLoginClick?: () => void;
   onDashboardClick?: () => void;
 }
 
-const NavBar = ({ activeTab, setActiveTab, isLoggedIn, onLoginClick, onDashboardClick }: NavBarProps) => {
+const NavBar = ({ isLoggedIn, onLoginClick, onDashboardClick }: NavBarProps) => {
+  const { activeTab, setActiveTab } = useNav();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const tabs = [
     { id: "overview", label: "01 // OVERVIEW" },
@@ -23,7 +27,25 @@ const NavBar = ({ activeTab, setActiveTab, isLoggedIn, onLoginClick, onDashboard
   ];
 
   const handleTabClick = (tabId: string) => {
-    setActiveTab(tabId);
+    if (tabId === "news") {
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    if (pathname !== "/") {
+      router.push(`/#${tabId}-section`);
+    } else {
+      const section = document.getElementById(`${tabId}-section`);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop,
+          behavior: "smooth",
+        });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      setActiveTab(tabId);
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -32,30 +54,52 @@ const NavBar = ({ activeTab, setActiveTab, isLoggedIn, onLoginClick, onDashboard
       <div className="fixed top-0 left-0 w-full z-60 bg-transparent text-white mix-blend-difference transition-all duration-300 pointer-events-none">
         <div className="w-full flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 pointer-events-auto">
           {/* Logo / Coordinates */}
-          <div className="flex flex-col cursor-pointer" onClick={() => setActiveTab("overview")}>
+          <Link href="/" className="flex flex-col cursor-pointer" onClick={() => handleTabClick("overview")}>
             <span className="font-bold text-xl sm:text-2xl leading-none tracking-tighter">HAVØK X1</span>
             <span className="text-[8px] sm:text-[9px] tracking-[0.3em] sm:tracking-[0.4em] opacity-60 font-bold uppercase">
               L3e /// High Performance Electric
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Tabs - Fade out when menu is open */}
           <div className={`hidden lg:flex gap-6 xl:gap-10 items-center transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`
-                  text-[10px] xl:text-[11px] font-bold tracking-[0.15em] xl:tracking-[0.2em] transition-all duration-300 relative py-1 cursor-pointer
-                  ${activeTab === tab.id ? "text-acid" : "opacity-60 hover:opacity-100"}
-                `}
-              >
-                {tab.label}
-                {activeTab === tab.id && (
-                  <div className="absolute left-0 -bottom-1 w-full h-0.5 bg-acid shadow-[0_0_8px_#ff3d00]" />
-                )}
-              </button>
-            ))}
+            {tabs.map((tab) => {
+              const isActive = (tab.id === "news" && pathname === "/blog") || (tab.id === activeTab && pathname === "/");
+
+              if (tab.id === "news") {
+                return (
+                  <Link
+                    key={tab.id}
+                    href="/blog"
+                    className={`
+                      text-[10px] xl:text-[11px] font-bold tracking-[0.15em] xl:tracking-[0.2em] transition-all duration-300 relative py-1 cursor-pointer
+                      ${isActive ? "text-acid" : "opacity-60 hover:opacity-100"}
+                    `}
+                  >
+                    {tab.label}
+                    {isActive && (
+                      <div className="absolute left-0 -bottom-1 w-full h-0.5 bg-acid shadow-[0_0_8px_#ff3d00]" />
+                    )}
+                  </Link>
+                );
+              }
+
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabClick(tab.id)}
+                  className={`
+                    text-[10px] xl:text-[11px] font-bold tracking-[0.15em] xl:tracking-[0.2em] transition-all duration-300 relative py-1 cursor-pointer
+                    ${isActive ? "text-acid" : "opacity-60 hover:opacity-100"}
+                  `}
+                >
+                  {tab.label}
+                  {isActive && (
+                    <div className="absolute left-0 -bottom-1 w-full h-0.5 bg-acid shadow-[0_0_8px_#ff3d00]" />
+                  )}
+                </button>
+              );
+            })}
           </div>
 
           {/* Right Action */}
@@ -91,19 +135,40 @@ const NavBar = ({ activeTab, setActiveTab, isLoggedIn, onLoginClick, onDashboard
 
         <div className="grow flex flex-col justify-center px-8 sm:px-12 relative z-10">
           <div className="flex flex-col gap-6">
-            {tabs.map((tab, index) => (
-              <button
-                key={tab.id}
-                onClick={() => handleTabClick(tab.id)}
-                className="group flex items-center justify-between border-b border-white/10 pb-4 hover:border-acid transition-colors w-full text-left"
-                style={{ transitionDelay: `${isMobileMenuOpen ? index * 50 + 100 : 0}ms` }}
-              >
-                <span className={`text-3xl sm:text-5xl font-bold tracking-tighter transition-colors uppercase ${activeTab === tab.id ? "text-white" : "text-white/40 group-hover:text-white"}`}>
-                  {tab.label.split(" // ")[1]}
-                </span>
-                <ArrowRight size={24} className="text-acid opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-              </button>
-            ))}
+            {tabs.map((tab, index) => {
+              const isNews = tab.id === "news";
+
+              if (isNews) {
+                return (
+                  <Link
+                    key={tab.id}
+                    href="/blog"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="group flex items-center justify-between border-b border-white/10 pb-4 hover:border-acid transition-colors w-full text-left"
+                    style={{ transitionDelay: `${isMobileMenuOpen ? index * 50 + 100 : 0}ms` }}
+                  >
+                    <span className={`text-3xl sm:text-5xl font-bold tracking-tighter transition-colors uppercase ${pathname === "/blog" ? "text-white" : "text-white/40 group-hover:text-white"}`}>
+                      {tab.label.split(" // ")[1]}
+                    </span>
+                    <ArrowRight size={24} className="text-acid opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </Link>
+                );
+              }
+
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabClick(tab.id)}
+                  className="group flex items-center justify-between border-b border-white/10 pb-4 hover:border-acid transition-colors w-full text-left"
+                  style={{ transitionDelay: `${isMobileMenuOpen ? index * 50 + 100 : 0}ms` }}
+                >
+                  <span className={`text-3xl sm:text-5xl font-bold tracking-tighter transition-colors uppercase ${(pathname === "/" && activeTab === tab.id) ? "text-white" : "text-white/40 group-hover:text-white"}`}>
+                    {tab.label.split(" // ")[1]}
+                  </span>
+                  <ArrowRight size={24} className="text-acid opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </button>
+              );
+            })}
 
             {/* Mobile Login in Menu */}
             <button

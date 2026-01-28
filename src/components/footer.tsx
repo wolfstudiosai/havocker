@@ -68,6 +68,16 @@ const Footer = () => {
           <span>HAVØK X1</span>
         </div>
       </div>
+
+      {/* Final Legal Copyright */}
+      <div className="bg-white border-t border-black/5 px-4 sm:px-6 md:px-10 py-3 sm:py-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <span className="text-[8px] sm:text-[9px] text-ink/20 font-bold tracking-wider sm:tracking-widest uppercase text-center sm:text-left">
+          © 2025 VELIMOTOR /// ALL RIGHTS RESERVED
+        </span>
+        <span className="text-[8px] sm:text-[9px] text-ink/20 font-bold tracking-wider sm:tracking-widest uppercase text-center sm:text-right">
+          SESSION ID: {Math.random().toString(36).substring(7).toUpperCase()}
+        </span>
+      </div>
     </footer>
   );
 };

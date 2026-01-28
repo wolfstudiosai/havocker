@@ -76,3 +76,77 @@ export const CONFIG_OPTIONS: ConfigOption[] = [
 ];
 
 export const BASE_PRICE = 4500;
+
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    title: "MOJAVE DESERT TELEMETRY REPORT",
+    category: "ENGINEERING",
+    date: "OCT 24, 2025",
+    image: "https://images.unsplash.com/photo-1558981403-8833075b3b19?q=80&w=2070&auto=format&fit=crop",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "THE FUTURE OF ELECTRIC FREEDOM",
+    category: "LIFESTYLE",
+    date: "OCT 20, 2025",
+    image: "https://images.unsplash.com/photo-1444491741275-3747c33cc99b?q=80&w=2070&auto=format&fit=crop",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "URBAN ASSAULT: X1 IN THE CITY",
+    category: "TECH",
+    date: "OCT 15, 2025",
+    image: "https://images.unsplash.com/photo-1609630875171-b132137746f1?q=80&w=2070&auto=format&fit=crop",
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "REDEFINING TORQUE VECTORING",
+    category: "ENGINEERING",
+    date: "OCT 12, 2025",
+    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop",
+    featured: false,
+  },
+];
+
+export const FORUM_THREADS = [
+  {
+    id: 1,
+    title: "OPTIMAL TIRE PRESSURE FOR SAND DUNES?",
+    author: "SAND_RAIDER",
+    category: "TECH",
+    time: "2H AGO",
+    replies: 24,
+    pinned: true,
+  },
+  {
+    id: 2,
+    title: "FIRST 500KM REVIEW: L3e PERFORMANCE",
+    author: "VOLT_RIDER",
+    category: "ENGINEERING",
+    time: "5H AGO",
+    replies: 12,
+    pinned: false,
+  },
+  {
+    id: 3,
+    title: "BEST AFTERMARKET PEGS FOR GRIP?",
+    author: "DIRT_KING",
+    category: "TECH",
+    time: "1D AGO",
+    replies: 8,
+    pinned: false,
+  },
+  {
+    id: 4,
+    title: "CUSTOM LIVERY GALLERY - SHOW YOUR X1",
+    author: "DESIGN_LAB",
+    category: "LIFESTYLE",
+    time: "2D AGO",
+    replies: 56,
+    pinned: false,
+  },
+];
