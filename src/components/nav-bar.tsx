@@ -29,7 +29,7 @@ const NavBar = ({ activeTab, setActiveTab, isLoggedIn, onLoginClick, onDashboard
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-[60] bg-transparent text-white mix-blend-difference transition-all duration-300 pointer-events-none">
+      <div className="fixed top-0 left-0 w-full z-60 bg-transparent text-white mix-blend-difference transition-all duration-300 pointer-events-none">
         <div className="w-full flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 pointer-events-auto">
           {/* Logo / Coordinates */}
           <div className="flex flex-col cursor-pointer" onClick={() => setActiveTab("overview")}>
@@ -68,7 +68,7 @@ const NavBar = ({ activeTab, setActiveTab, isLoggedIn, onLoginClick, onDashboard
             {/* Account Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="hover:text-acid transition-colors focus:outline-none relative z-[70] cursor-pointer lg:hidden"
+              className="hover:text-acid transition-colors focus:outline-none relative z-70 cursor-pointer lg:hidden"
             >
               {isMobileMenuOpen ? <X size={24} strokeWidth={2} /> : <Menu size={24} strokeWidth={2} />}
             </button>
@@ -87,9 +87,9 @@ const NavBar = ({ activeTab, setActiveTab, isLoggedIn, onLoginClick, onDashboard
         className={`fixed top-0 right-0 h-full w-full md:w-[500px] bg-black z-50 flex flex-col shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* Background Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)] bg-size-[40px_40px] opacity-20 pointer-events-none" />
 
-        <div className="flex-grow flex flex-col justify-center px-8 sm:px-12 relative z-10">
+        <div className="grow flex flex-col justify-center px-8 sm:px-12 relative z-10">
           <div className="flex flex-col gap-6">
             {tabs.map((tab, index) => (
               <button

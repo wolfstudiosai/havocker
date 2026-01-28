@@ -66,7 +66,7 @@ const Gallery = () => {
   const currentItem = newsItems[activeIndex];
 
   return (
-    <div className="w-full bg-black border-t border-white/10 relative overflow-hidden flex flex-col min-h-[600px] h-auto md:h-[90vh] md:min-h-[700px]">
+    <div className="w-full bg-black border-t border-white/10 relative overflow-hidden flex flex-col md:min-h-[600px] h-auto md:h-[90vh] md:min-h-[700px]">
       {/* Background Image Layer with Heavy Dark Overlay */}
       <div className="absolute inset-0 z-0">
         {newsItems.map((item, idx) => (
@@ -77,12 +77,12 @@ const Gallery = () => {
           >
             <img src={item.src} alt={item.title} className="w-full h-full object-cover grayscale opacity-60" />
             {/* Left-heavy gradient for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-80" />
           </div>
         ))}
         {/* Subtle Grid on top of darkness */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10 bg-[size:30px_30px] md:bg-[size:40px_40px] pointer-events-none mix-blend-overlay" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-10 bg-size-[30px_30px] md:bg-size-[40px_40px] pointer-events-none mix-blend-overlay" />
       </div>
 
       {/* Content Container - Stacked Left */}
@@ -102,7 +102,7 @@ const Gallery = () => {
         <div className="max-w-full sm:max-w-xl md:max-w-3xl relative">
           <h2
             key={currentItem.id}
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.85] mb-4 md:mb-8 animate-in fade-in slide-in-from-left-4 duration-500 uppercase drop-shadow-2xl break-words"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.85] mb-4 md:mb-8 animate-in fade-in slide-in-from-left-4 duration-500 uppercase drop-shadow-2xl wrap-break-word"
           >
             {currentItem.title}
           </h2>
@@ -175,7 +175,7 @@ const Gallery = () => {
         </div>
 
         {/* Decorative Tech Elements */}
-        <div className="absolute top-12 right-4 md:right-16 hidden lg:block">
+        <div className="absolute top-12 right-4 md:right-16 hidden lg:block ">
           <div className="text-right">
             <div className="text-[9px] font-bold tracking-[0.3em] text-white/30 mb-1">SYSTEM STATUS</div>
             <div className="flex items-center justify-end gap-2 text-white font-bold text-xs tracking-widest">

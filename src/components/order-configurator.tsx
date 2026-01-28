@@ -39,8 +39,8 @@ const OrderConfigurator = () => {
   return (
     <div className="w-full min-h-screen bg-white border-t border-black/10 flex flex-col lg:flex-row relative overflow-hidden">
       {/* LEFT PANEL: VISUALIZER */}
-      <div className="w-full lg:w-[60%] relative border-b lg:border-b-0 lg:border-r border-black/5 bg-[#F0F2F5] min-h-[300px] sm:min-h-[400px] lg:min-h-0 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30 bg-[size:40px_40px] md:bg-[size:60px_60px] pointer-events-none mix-blend-multiply" />
+      <div className="w-full lg:w-[60%] relative border-b lg:border-b-0 lg:border-r border-black/5 bg-dark min-h-[300px] sm:min-h-[400px] lg:min-h-0 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30 bg-size-[40px_40px] md:bg-size-[60px_60px] pointer-events-none mix-blend-multiply" />
 
         <div
           className={`w-full h-full transition-all duration-500 ${isAnimating ? "opacity-80 blur-[2px] scale-[1.02]" : "opacity-100 scale-100"
@@ -51,8 +51,8 @@ const OrderConfigurator = () => {
             alt="Havocker Config"
             height={500}
             width={500}
-            className={`w-full h-full object-contain grayscale brightness-110 contrast-100 transition-all duration-700
-              ${selectedLivery === "ion_blue" ? "sepia-[0.3] hue-rotate-[170deg] saturate-[5] brightness-110" : ""}
+            className={`w-full h-full object-cover grayscale brightness-110 contrast-100 transition-all duration-700
+              ${selectedLivery === "ion_blue" ? "sepia-[0.3] hue-rotate-170 saturate-[5] brightness-110" : ""}
               ${selectedLivery === "arctic_camo" ? "contrast-125 brightness-125 saturate-[0]" : ""}
             `}
           />
@@ -60,9 +60,9 @@ const OrderConfigurator = () => {
           {/* Overlay Header */}
           <div className="absolute top-0 left-0 p-4 sm:p-6 lg:p-12 pointer-events-none">
             <div className="flex items-center gap-2 sm:gap-4 mb-3">
-              <Circle size={8} className="text-acid fill-acid animate-pulse shadow-[0_0_12px_#00C2FF] sm:w-[10px] sm:h-[10px]" />
-              <span className="text-[9px] sm:text-[11px] tracking-[0.3em] sm:tracking-[0.5em] text-ink font-bold uppercase drop-shadow-md">
-                LIVE_RENDER_V4.0
+              <Circle size={8} className="text-acid fill-acid animate-pulse" />
+              <span className="text-[9px] sm:text-[11px] tracking-[0.3em] sm:tracking-[0.5em] text-[rgba(255,255,255,0.8)] font-bold uppercase">
+                live preview
               </span>
             </div>
           </div>

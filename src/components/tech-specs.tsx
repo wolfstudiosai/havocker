@@ -14,7 +14,7 @@ const TechSpecs = () => {
       <div className="w-full border-b border-black/5 bg-transparent overflow-x-auto no-scrollbar">
         <div className="flex w-max lg:w-full">
           {HAVOCKER_SPECS.slice(8, 12).concat(HAVOCKER_SPECS.slice(0, 4)).map((spec, i) => (
-            <div key={`top-${i}`} className="flex-shrink-0 w-40 md:w-auto md:flex-1 p-4 border-r border-black/5 last:border-r-0 hover:bg-dark/40 transition-colors group cursor-default">
+            <div key={`top-${i}`} className="shrink-0 w-40 md:w-auto md:flex-1 p-4 border-r border-black/5 last:border-r-0 hover:bg-dark/40 transition-colors group cursor-default">
               <div className="text-[8px] text-ink/30 uppercase tracking-[0.3em] mb-1 font-bold group-hover:text-acid">{spec.item}</div>
               <div className={`text-xs font-bold tracking-tight ${spec.highlight ? 'text-acid' : 'text-ink'}`}>{spec.value}</div>
             </div>
@@ -28,7 +28,7 @@ const TechSpecs = () => {
           <div className="p-4 md:p-6 border-b border-black/5 bg-white">
             <h3 className="text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:tracking-[0.4em] text-ink">COMPONENTS</h3>
           </div>
-          <div className="flex-grow overflow-x-auto lg:overflow-x-visible overflow-y-auto no-scrollbar">
+          <div className="grow overflow-x-auto lg:overflow-x-visible overflow-y-auto no-scrollbar">
             {/* Mobile: Horizontal scroll, Desktop: Vertical list */}
             <div className="flex lg:flex-col min-w-max lg:min-w-0">
               {BIKE_PARTS.map((part, idx) => (
@@ -58,13 +58,13 @@ const TechSpecs = () => {
         </div>
 
         {/* Column 2: Viewport */}
-        <div className="flex-grow relative bg-[#FDFDFD] overflow-hidden border-b lg:border-b-0 lg:border-r border-black/5 group min-h-[300px] lg:min-h-0">
+        <div className="grow relative bg-[#FDFDFD] overflow-hidden border-b lg:border-b-0 lg:border-r border-black/5 group min-h-[300px] lg:min-h-0">
           <div className="absolute inset-0 pointer-events-none z-10">
             <div className="absolute top-4 md:top-6 left-4 md:left-6 w-8 md:w-10 h-8 md:h-10 border-l border-t border-black/5" />
             <div className="absolute top-4 md:top-6 right-4 md:right-6 w-8 md:w-10 h-8 md:h-10 border-r border-t border-black/5" />
             <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 w-8 md:w-10 h-8 md:h-10 border-l border-b border-black/5" />
             <div className="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-8 md:w-10 h-8 md:h-10 border-r border-b border-black/5" />
-            <div className="absolute inset-0 bg-grid-pattern opacity-30 bg-[size:30px_30px] md:bg-[size:40px_40px]" />
+            <div className="absolute inset-0 bg-grid-pattern opacity-30 bg-size-[30px_30px] md:bg-size-[40px_40px]" />
           </div>
 
           <div className="w-full h-full flex items-center justify-center p-6 md:p-12 relative">
@@ -158,7 +158,7 @@ const TechSpecs = () => {
           {HAVOCKER_SPECS.slice(0, 8).map((spec, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-32 md:w-40 lg:w-auto lg:flex-1 p-3 md:p-5 border-r border-black/5 last:border-r-0 hover:bg-dark/40 transition-colors group cursor-default"
+              className="shrink-0 w-32 md:w-40 lg:w-auto lg:flex-1 p-3 md:p-5 border-r border-black/5 last:border-r-0 hover:bg-dark/40 transition-colors group cursor-default"
             >
               <div className="text-[8px] md:text-[9px] text-ink/30 uppercase tracking-[0.2em] md:tracking-[0.3em] mb-1 font-bold group-hover:text-acid truncate">
                 {spec.item}
