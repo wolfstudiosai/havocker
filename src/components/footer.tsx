@@ -7,20 +7,20 @@ const Footer = () => {
       <div className="flex-grow flex flex-col md:flex-row items-start md:items-center justify-between px-4 sm:px-6 md:px-10 py-8 md:py-10 gap-8 md:gap-10">
         {/* Brand Identifier (matches top) */}
         <div className="flex flex-col w-full md:w-auto">
-          <span className="font-bold text-2xl sm:text-3xl md:text-4xl leading-none tracking-tighter text-ink">HAVOCKER</span>
+          <span className="font-bold text-2xl sm:text-3xl md:text-4xl leading-none tracking-tighter text-ink">HAVØK X1</span>
           <span className="text-[9px] sm:text-[11px] tracking-[0.4em] sm:tracking-[0.5em] text-ink/40 font-bold uppercase mt-1">
-            L3e /// High Performance Lab
+            L3e /// High Performance Electric
           </span>
 
           <div className="mt-6 md:mt-8 flex flex-wrap items-center gap-4 md:gap-6 text-[9px] sm:text-[10px] text-ink/30 font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase">
             <a href="#" className="hover:text-acid transition-colors">
-              SAFETY_DATA
+              SAFETY
             </a>
             <a href="#" className="hover:text-acid transition-colors">
-              CORE_SPECS
+              SPECS
             </a>
             <a href="#" className="hover:text-acid transition-colors">
-              FLEET_SALES
+              CORPORATE
             </a>
           </div>
         </div>
@@ -46,7 +46,7 @@ const Footer = () => {
             </button>
           </div>
           <p className="mt-3 md:mt-4 text-[8px] sm:text-[9px] text-ink/30 font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase max-w-xs">
-            By subscribing, you agree to receive technical updates, production logs, and deployment notifications.
+            By subscribing, you agree to receive updates, news, and exclusive offers.
           </p>
         </div>
       </div>
