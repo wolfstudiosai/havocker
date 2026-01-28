@@ -28,7 +28,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPreOrder }) => {
         <div className="text-2xl md:text-4xl text-white font-bold -mt-10 md:-mt-14 mr-2 relative">
           KW <span className="text-acid">PEAK</span>
         </div>
-        <div className="w-24 md:w-48 h-[2px] md:h-[3px] bg-acid my-2 md:my-4 shadow-[0_0_10px_#00C2FF]" />
+        <div className="w-24 md:w-48 h-[2px] md:h-[3px] bg-acid my-2 md:my-4" />
         <div className="text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] text-white/40 uppercase font-bold flex items-center gap-2">
           <span className="hidden sm:inline">SMART TRACTION CONTROL</span>
           <span className="sm:hidden">SMART CTRL</span>
@@ -98,7 +98,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPreOrder }) => {
           <span>INTELLIGENT VECTOR CONTROL</span>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

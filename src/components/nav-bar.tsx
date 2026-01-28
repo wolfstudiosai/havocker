@@ -50,7 +50,7 @@ const NavBar = ({ activeTab, setActiveTab }: NavBarProps) => {
                 {tab.label}
                 {/* Underline Indicator */}
                 {activeTab === tab.id && (
-                  <div className="absolute left-0 -bottom-1 w-full h-0.5 bg-acid shadow-[0_0_8px_#00C2FF]" />
+                  <div className="absolute left-0 -bottom-1 w-full h-0.5 bg-acid" />
                 )}
               </button>
             ))}
