@@ -10,7 +10,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onPreOrder }) => {
     <section className="relative w-full md:h-screen min-h-[600px] bg-dark overflow-hidden">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/images/hero_image.png"
+          src="/images/hero-banner.png"
           alt="Havocker Main"
           fill
           priority

@@ -47,7 +47,7 @@ const OrderConfigurator = () => {
             }`}
         >
           <Image
-            src="/images/configurator.jpg"
+            src="/images/your-ride.png"
             alt="Havocker Config"
             height={500}
             width={500}
@@ -179,7 +179,7 @@ const OrderConfigurator = () => {
         </div>
 
         {/* Sticky Footer */}
-        <div className="mt-auto border-t border-black/10 bg-white p-4 sm:p-6 lg:p-10 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] z-20">
+        <div className="mt-auto border-t border-black/10 bg-white py-2 px-4 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] z-20">
           <div className="flex justify-between items-center mb-4 sm:mb-6">
             <span className="text-[9px] sm:text-[10px] text-ink/30 uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold">STARTING PRICE</span>
             <span className="text-xs sm:text-sm font-bold font-mono text-ink/30">$ {BASE_PRICE}</span>
@@ -190,7 +190,7 @@ const OrderConfigurator = () => {
               <span className="text-[10px] sm:text-[11px] tracking-[0.3em] sm:tracking-[0.4em] text-ink/30 uppercase block mb-1 sm:mb-2 font-bold">
                 Total Price
               </span>
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink tracking-tighter leading-none">
+              <div className="text-2xl sm:text-3xl  font-bold text-ink tracking-tighter leading-none">
                 $ {totalPrice.toLocaleString()}
               </div>
             </div>
