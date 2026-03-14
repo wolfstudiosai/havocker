@@ -1,12 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Custom Colors */
-  --color-acid: #ff3d00;
-  --color-dark: #F0F2F5;
-  --color-surface: #FFFFFF;
-  --color-accent: #E2E8F0;
-  --color-ink: #0F172A;
+  /* ── Color Scheme — derived from hero banner ── */
+  /* Copper/bronze from fork tubes */
+  --color-acid: #C8874D;
+  /* Warm concrete from warehouse floor */
+  --color-dark: #EDEAE5;
+  /* Warm paper white */
+  --color-surface: #F8F7F4;
+  /* Warm stone — borders, subtle fills */
+  --color-accent: #DDD8D0;
+  /* Industrial charcoal — primary text */
+  --color-ink: #1A1C20;
+  /* Gunmetal gray — secondary text */
+  --color-steel: #7A8490;
+  /* Dark steel — footer, dark panels */
+  --color-slate: #252830;
+  /* Warm mist — muted borders */
+  --color-fog: #D4CFC7;
 
   /* Font Family */
   --font-sans: "Oswald", sans-serif;
@@ -15,13 +26,13 @@
   --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-scanline: scanline 8s linear infinite;
   --animate-marquee: marquee 25s linear infinite;
+  --animate-spin-slow: spin-slow 12s linear infinite;
 
   /* Keyframes */
   @keyframes scanline {
     0% {
       transform: translateY(-100%);
     }
-
     100% {
       transform: translateY(100%);
     }
@@ -31,17 +42,25 @@
     0% {
       transform: translateX(0%);
     }
-
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 }
 
 /* Base Styles */
 body {
-  background-color: #F0F2F5;
-  color: #0F172A;
+  background-color: #EDEAE5;
+  color: #1A1C20;
   font-family: "Oswald", sans-serif;
 }
 
@@ -56,7 +75,7 @@ body {
 }
 
 .text-glow {
-  text-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
+  text-shadow: 0 0 10px rgba(200, 135, 77, 0.3);
 }
 
 .hud-shadow {
@@ -77,6 +96,6 @@ body {
 
 /* Background Patterns */
 .bg-grid-pattern {
-  background-image: linear-gradient(to right, #E2E8F0 1px, transparent 1px),
-    linear-gradient(to bottom, #E2E8F0 1px, transparent 1px);
+  background-image: linear-gradient(to right, #DDD8D0 1px, transparent 1px),
+    linear-gradient(to bottom, #DDD8D0 1px, transparent 1px);
 }

@@ -10,7 +10,7 @@ const MockThreadContent = ({ thread }: { thread: any }) => (
     className="max-w-4xl mx-auto py-8 px-6 pb-32"
   >
 
-    <div className="bg-[#F8F9FA] border border-black/5 p-8 mb-12 relative overflow-hidden">
+    <div className="bg-dark border border-ink/5 p-8 mb-12 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-1 h-full bg-acid" />
       <div className="flex justify-between items-start mb-6">
         <div className="flex items-center gap-3">
@@ -66,7 +66,7 @@ const MockThreadContent = ({ thread }: { thread: any }) => (
     </div>
 
 
-    <div className="fixed bottom-0 left-0 w-full bg-white border-t border-black/10 p-6 z-20">
+    <div className="fixed bottom-0 left-0 w-full bg-surface border-t border-ink/10 p-6 z-20">
       <div className="max-w-4xl mx-auto flex gap-4">
         <input
           type="text"
@@ -95,7 +95,7 @@ const ThreadView: React.FC<ThreadViewProps> = ({ thread, onClose }) => {
           className="fixed inset-0 z-100 bg-white overflow-hidden w-full h-full flex flex-col"
         >
 
-          <div className="bg-black text-white p-8 md:p-12 relative shrink-0">
+          <div className="bg-slate text-white p-8 md:p-12 relative shrink-0">
             <button
               onClick={onClose}
               className="absolute top-8 right-8 w-12 h-12 flex items-center justify-center text-white/40 hover:text-acid hover:bg-white/10 rounded-full transition-all"
@@ -123,7 +123,7 @@ const ThreadView: React.FC<ThreadViewProps> = ({ thread, onClose }) => {
           </div>
 
 
-          <div className="grow overflow-y-auto bg-white relative">
+          <div className="grow overflow-y-auto bg-surface relative">
             <MockThreadContent thread={thread} />
           </div>
         </motion.div>

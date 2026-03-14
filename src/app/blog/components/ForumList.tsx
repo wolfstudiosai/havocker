@@ -5,7 +5,7 @@ import { Activity, User, Plus, Pin } from 'lucide-react';
 interface ForumListProps {
   threads: any[];
   onSelectThread: (thread: any) => void;
-  gridVariants: any;
+  gridVariants?: any;
 }
 
 const ForumList: React.FC<ForumListProps> = ({ threads, onSelectThread, gridVariants }) => {
@@ -15,9 +15,9 @@ const ForumList: React.FC<ForumListProps> = ({ threads, onSelectThread, gridVari
       initial="visible"
       animate="visible"
       exit="hidden"
-      className="w-full bg-white min-h-[80vh]"
+      className="w-full bg-surface min-h-[80vh]"
     >
-      <div className="w-full border-b border-black/5 bg-dark px-6 md:px-12 py-8">
+      <div className="w-full border-b border-ink/5 bg-dark px-6 md:px-12 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex gap-8 divide-x divide-black/10">
             <div className="flex items-center gap-4 pl-4 first:pl-0">
@@ -36,19 +36,19 @@ const ForumList: React.FC<ForumListProps> = ({ threads, onSelectThread, gridVari
             </div>
           </div>
 
-          <button className="bg-ink text-white px-8 py-4 flex items-center gap-3 text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-acid hover:text-black transition-all shadow-xl group">
+          <button className="bg-ink text-white px-8 py-4 flex items-center gap-3 text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-acid hover:text-ink transition-all shadow-xl group">
             <Plus size={16} /> INITIALIZE THREAD
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-b border-black/5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-b border-ink/5">
         {threads.map((thread, idx) => (
           <motion.div
             layoutId={`thread-${thread.id}`}
             key={thread.id}
             onClick={() => onSelectThread(thread)}
-            className={`group bg-white border-r border-b border-black/5 relative flex flex-col justify-between p-8 hover:bg-[#F8F9FA] transition-colors cursor-pointer min-h-[300px] ${idx % 4 === 3 ? 'border-r-0' : ''}`}
+            className={`group bg-surface border-r border-b border-ink/5 relative flex flex-col justify-between p-8 hover:bg-dark transition-colors cursor-pointer min-h-[300px] ${idx % 4 === 3 ? 'border-r-0' : ''}`}
           >
             <div className="absolute top-4 right-4 text-[9px] font-bold tracking-widest text-ink/10 font-mono group-hover:text-acid transition-colors">
               ID:00{thread.id}
@@ -56,7 +56,7 @@ const ForumList: React.FC<ForumListProps> = ({ threads, onSelectThread, gridVari
 
             <div className="relative z-10 flex flex-col items-start gap-4">
               <div className="flex items-center gap-2">
-                <span className={`px-2 py-1 text-[9px] font-bold tracking-[0.2em] uppercase border ${thread.pinned ? 'bg-acid text-black border-acid' : 'bg-transparent text-ink/40 border-black/10'}`}>
+                <span className={`px-2 py-1 text-[9px] font-bold tracking-[0.2em] uppercase border ${thread.pinned ? 'bg-acid text-ink border-acid' : 'bg-transparent text-ink/40 border-ink/10'}`}>
                   {thread.category}
                 </span>
                 {thread.pinned && <Pin size={12} className="text-black fill-black rotate-45" />}
@@ -90,7 +90,7 @@ const ForumList: React.FC<ForumListProps> = ({ threads, onSelectThread, gridVari
           </motion.div>
         ))}
 
-        <div className="bg-dark border-b border-black/5 flex flex-col items-center justify-center p-8 cursor-pointer hover:bg-black hover:text-white transition-colors group">
+        <div className="bg-dark border-b border-ink/5 flex flex-col items-center justify-center p-8 cursor-pointer hover:bg-ink hover:text-white transition-colors group">
           <Plus size={32} className="mb-4 text-ink/20 group-hover:text-acid" />
           <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-ink/40 group-hover:text-white">LOAD OLDER THREADS</span>
         </div>

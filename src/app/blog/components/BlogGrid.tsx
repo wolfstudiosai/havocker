@@ -1,67 +1,81 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+"use client";
+
+import React, { useState } from "react";
+import Link from "next/link";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 interface BlogGridProps {
   posts: any[];
-  onSelectPost: (post: any) => void;
-  gridVariants: any;
+  onSelectPost?: (post: any) => void;
+  gridVariants?: any;
 }
 
+const PAGE_SIZE = 8;
+
 const BlogGrid: React.FC<BlogGridProps> = ({ posts, onSelectPost, gridVariants }) => {
+  const [visible, setVisible] = useState(PAGE_SIZE);
+  const shown = posts.slice(0, visible);
+  const hasMore = visible < posts.length;
+
   return (
-    <motion.div
-      className="w-full"
-      variants={gridVariants}
-      initial="visible"
-      animate="visible"
-      exit="hidden"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full border-b border-black/5 bg-white">
-        {posts.map((post, idx) => (
-          <motion.div
-            layoutId={`post-${post.id}`}
+    <div className="w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full border-b border-ink/5 bg-surface">
+        {shown.map((post, idx) => (
+          <Link
             key={post.id}
-            onClick={() => onSelectPost(post)}
-            className={`group relative aspect-square overflow-hidden bg-black/5 border-r border-black/5 cursor-pointer ${idx % 4 === 3 ? 'border-r-0' : ''}`}
+            href={`/blog/${post.id}`}
+            className={`group relative aspect-square overflow-hidden bg-ink/5 border-r border-ink/5 block ${idx % 4 === 3 ? "border-r-0" : ""}`}
           >
-            <motion.img
-              layoutId={`post-image-${post.id}`}
+            {/* Default image */}
+            <img
               src={post.image}
               alt={post.title}
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 grayscale group-hover:grayscale-0"
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out group-hover:opacity-0"
             />
 
-            <motion.div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <span className="inline-block text-[9px] font-bold tracking-[0.3em] text-acid mb-2 uppercase">
-                  {post.category} /// {post.date}
-                </span>
-                <motion.h3 layoutId={`post-title-${post.id}`} className="text-2xl font-bold text-white tracking-tight leading-none mb-4 uppercase">
-                  {post.title}
-                </motion.h3>
-                <button className="flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-white hover:text-acid transition-colors uppercase">
-                  READ ENTRY <ArrowRight size={12} />
-                </button>
-              </div>
-            </motion.div>
+            {/* Hover image */}
+            {post.hoverImage && (
+              <img
+                src={post.hoverImage}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out scale-105"
+              />
+            )}
 
-            <div className="absolute top-4 left-4 opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-              <span className="px-2 py-1 bg-white/10 backdrop-blur-sm text-[9px] font-bold tracking-[0.2em] text-white uppercase border border-white/10">
-                {post.category}
+            {/* Text overlay — visible by default */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8">
+              <span className="text-[9px] font-bold tracking-[0.3em] text-acid mb-2 uppercase">
+                {post.category} /// {post.date}
+              </span>
+              <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-none mb-3 uppercase">
+                {post.title}
+              </h3>
+              <span className="flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-white/50 group-hover:text-acid transition-colors uppercase">
+                READ ENTRY <ArrowRight size={12} />
               </span>
             </div>
-          </motion.div>
+          </Link>
         ))}
       </div>
 
-      <div className="w-full py-16 flex flex-col items-center justify-center">
-        <p className="text-[10px] font-bold tracking-[0.3em] text-ink/40 uppercase mb-6">END OF STREAM</p>
-        <button className="px-8 py-3 border border-ink/10 bg-white hover:bg-ink hover:text-white transition-all text-[10px] font-bold tracking-[0.3em] uppercase shadow-sm">
-          LOAD ARCHIVES
-        </button>
+      <div className="w-full py-3 px-6 md:px-12 flex items-center justify-between border-t border-ink/5">
+        <span className="text-[8px] font-bold tracking-[0.2em] text-ink/15 uppercase">
+          {shown.length} OF {posts.length} ENTRIES
+        </span>
+        {hasMore ? (
+          <button
+            onClick={() => setVisible((v) => Math.min(v + PAGE_SIZE, posts.length))}
+            className="text-[9px] font-bold tracking-[0.2em] text-ink/25 hover:text-acid transition-colors uppercase flex items-center gap-2"
+          >
+            LOAD MORE <ChevronDown size={10} />
+          </button>
+        ) : (
+          <span className="text-[8px] font-bold tracking-[0.2em] text-ink/10 uppercase">
+            ALL LOADED
+          </span>
+        )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -23,7 +23,7 @@ export interface ConfigOption {
   id: string;
   label: string;
   price: number;
-  type: "livery" | "upgrade" | "accessory";
+  type: "upgrade" | "accessory";
   detail?: string;
 }
 
