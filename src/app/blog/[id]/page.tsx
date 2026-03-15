@@ -27,32 +27,32 @@ function ArticleContent({ post }: { post: (typeof BLOG_POSTS)[0] }) {
   return (
     <div className="px-6 md:px-12 lg:px-16 py-8 md:py-12">
       {/* ── Summary ── */}
-      <div className="py-6 md:py-8 mb-2" style={{ borderBottom: "1px solid rgba(15,23,42,0.06)" }}>
-        <div className="flex items-center gap-2 mb-4">
-          <Activity size={12} className="text-acid" />
+      <div className="py-2 md:py-3 mb-1" style={{ borderBottom: "1px solid rgba(15,23,42,0.06)" }}>
+        <div className="flex items-center gap-2 mb-2">
+          <Activity size={10} className="text-acid" />
           <span className="text-[9px] text-acid font-bold tracking-[0.3em] uppercase">
             Summary
           </span>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
           <div>
-            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-1">Category</div>
+            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-0.5">Category</div>
             <div className="text-sm font-bold text-ink tracking-tight">{post.category}</div>
           </div>
           <div>
-            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-1">Published</div>
+            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-0.5">Published</div>
             <div className="text-sm font-bold text-ink tracking-tight">{post.date}</div>
           </div>
           <div>
-            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-1">Read Time</div>
+            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-0.5">Read Time</div>
             <div className="text-sm font-bold text-ink tracking-tight">6 Min</div>
           </div>
           <div>
-            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-1">Topics</div>
+            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-0.5">Topics</div>
             <div className="text-sm font-bold text-ink tracking-tight">Motor, Chassis, OTA</div>
           </div>
           <div>
-            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-1">Status</div>
+            <div className="text-[8px] text-ink/25 font-bold tracking-[0.15em] uppercase mb-0.5">Status</div>
             <div className="text-sm font-bold text-acid tracking-tight">Active</div>
           </div>
         </div>
